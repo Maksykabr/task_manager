@@ -73,3 +73,5 @@ htmlcov/
 
 # Windows
 Thumbs.db
+
+.task_key.pem

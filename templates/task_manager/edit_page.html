@@ -1,0 +1,38 @@
+{% extends 'task_manager/base.html' %}
+
+{% block title %} Task manager {% endblock %}
+
+
+{% block content %}
+    {% include 'task_manager/_include/navbar.html' %}
+    <form method="post">
+         {% csrf_token %}
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Your Title" value="{{ task.title }}" name="title">
+          </div>
+          <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <textarea class="form-control" id="Description" name="description" rows="3" cols="50">{{ task.description }}</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="selected_data" class="form-label">Selected Data</label><br>
+            <input type="date" id="selected_data" name="selected_data" value="{{ task.selected_data }}">
+          </div>
+         <div>
+             <label for="start_time">Start Time:</label><br>
+             <input type="time" id="start_time" name="start_time" value="{{ task.start_time }}"><br><br>
+         </div>
+         <div>
+             <label for="end_time">End Time:</label><br>
+             <input type="time" id="end_time" name="end_time" value="{{ task.end_time }}"><br><br>
+         </div>
+         <div>
+             <label for="completed">Completed:</label><br>
+             <input type="checkbox" id="completed" name="completed"><br><br>
+         </div>
+         <div>
+             <button type="submit" class="btn btn-dark">Add Todo</button><br><br>
+         </div>
+     </form>
+{% endblock %}

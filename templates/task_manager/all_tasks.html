@@ -1,0 +1,31 @@
+{% extends 'task_manager/base.html' %}
+
+{% block title %} Task manager {% endblock %}
+
+
+{% block content %}
+    {% include 'task_manager/_include/navbar.html' %}
+    <h1>Day</h1>
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Start time</th>
+        <th scope="col">End time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td><a href="{% url 'edit_task' task.id %}">{{ task.title }}</a></td>
+        <td>{{ task.description | truncatewords:3 }}</td>
+        <td>{{ task.start_time }}</td>
+        <td>{{ task.end_time }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
