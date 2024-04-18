@@ -1,0 +1,17 @@
+{% extends 'task_manager/base.html' %}
+
+{% block title %} Task manager {% endblock %}
+
+
+{% block content %}
+    {% include 'task_manager/_include/navbar.html' %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="text-center">Welcome to our Task Manager</h1>
+                <p class="lead text-center">Efficiently manage your tasks with our Django-based to-do project!</p>
+                <p class="text-center">This project provides comprehensive task management functionalities, allowing you to create, edit, mark as completed, and view tasks effortlessly. With intuitive APIs and clean UI, stay organized and productive with ease. Experience seamless task management today!</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

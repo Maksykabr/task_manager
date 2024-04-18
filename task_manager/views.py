@@ -3,13 +3,12 @@ from django.shortcuts import render, redirect
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
-from django.shortcuts import get_object_or_404
 from .serializers import TaskSerializer
 from .models import Task
 from datetime import datetime, date
 
 
-class TaskList(APIView):
+class GetTaskList(APIView):
     def get(self, request, pk=None, format=None):
         current_date = date.today()
         tasks = Task.objects.filter(selected_data=current_date, completed=False)
@@ -100,7 +99,8 @@ class GetEditPage(APIView):
                 serializer.save()
                 return redirect('active_task')
 
-class HomePage(APIView):
+
+class GetHomePage(APIView):
     def get(self, request):
 
         return render(request, 'task_manager/home.html')
